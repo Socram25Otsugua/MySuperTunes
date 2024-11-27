@@ -18,7 +18,7 @@ public class SongManager {
         songDAO.addSong(song);
     }
     public void removeSong(Song song) throws SQLException {
-        songDAO.removeSong(song);
+        songDAO.removeSong(song.getId());
     }
     public void updateSong(Song song) throws SQLException {
         songDAO.updateSong(song);

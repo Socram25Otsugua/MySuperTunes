@@ -50,7 +50,7 @@ public class SongDAO {
 
         try(Connection connection = DBConnection.getConnection();
         PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, songId());
+            statement.setInt(1, songId);
             statement.executeUpdate();
         }
     }
