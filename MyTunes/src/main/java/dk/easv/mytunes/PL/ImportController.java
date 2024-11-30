@@ -1,6 +1,6 @@
 package dk.easv.mytunes.PL;
 
-import dk.easv.mytunes.BLL.LogicController;
+import dk.easv.mytunes.PL.controllers.MediaPlayerController;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class ImportController
 {
-    private LogicController logicController;
+    private MediaPlayerController mediaPlayerController;
     @FXML
     private TextField title;
     @FXML
@@ -18,17 +18,17 @@ public class ImportController
     @FXML
     private ComboBox genre;
 
-    public ImportController(LogicController logicController)
+    public ImportController(MediaPlayerController mediaPlayerController)
     {
-        this.logicController = logicController;
+        this.mediaPlayerController = mediaPlayerController;
     }
 
     @FXML
-    private void importSong()
+    private void importFile()
     {
         if(!title.getText().isEmpty() && !artist.getText().isEmpty() && !path.getText().isEmpty())
         {
-            logicController.addSong(title.getText() + " " + artist.getText() + " " + path.getText());
+            mediaPlayerController.addSong(title.getText() + " " + artist.getText() + " " + path.getText());
             Stage stage = (Stage) title.getScene().getWindow();
             stage.close();
         }

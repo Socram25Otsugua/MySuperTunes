@@ -1,5 +1,6 @@
 package dk.easv.mytunes.BLL;
 
+import dk.easv.mytunes.DAL.PlaylistDAO;
 import dk.easv.mytunes.DAL.SongDAO;
 import dk.easv.mytunes.BE.Song;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.sql.SQLException;
 
 public class SongManager {
     private SongDAO songDAO;
+    private PlaylistDAO playlistDAO;
 
     public SongManager(){
         this.songDAO = new SongDAO();

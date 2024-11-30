@@ -12,3 +12,7 @@
 .transparent{
     -fx-background-color: transparent;
 }
+.side-bar{
+    -fx-background-radius: 30;
+    -fx-background-color: linear-gradient(from 0% 50% to 50% 100%, #000066, #000099);
+}

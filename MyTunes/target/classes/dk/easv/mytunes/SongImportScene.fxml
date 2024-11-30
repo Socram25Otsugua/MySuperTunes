@@ -16,6 +16,6 @@
       <Label layoutX="76.0" layoutY="84.0" text="Artist" />
       <Label layoutX="76.0" layoutY="187.0" text="Path" />
       <Label layoutX="76.0" layoutY="136.0" text="Genre" />
-      <Button fx:id="btn" layoutX="124.0" layoutY="252.0" mnemonicParsing="false" onAction="#importSong" text="Import" />
+      <Button fx:id="btn" layoutX="124.0" layoutY="252.0" mnemonicParsing="false" onAction="#importFile" text="Import" />
    </children>
 </AnchorPane>

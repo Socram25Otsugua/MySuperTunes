@@ -1,30 +1,19 @@
-package dk.easv.mytunes.BLL;
+package dk.easv.mytunes.PL.controllers;
 
 import dk.easv.mytunes.Main;
 import dk.easv.mytunes.PL.ImportController;
-import dk.easv.mytunes.PL.TunesController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LogicController
+public class MediaPlayerController
 {
     private ImportController importController;
     private TunesController tunesController;
 
-    public LogicController(Stage stage) throws IOException
-    {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MainScene.fxml"));
-
-        tunesController = new TunesController(this);
-        fxmlLoader.setController(tunesController);
-
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("MyTunes");
-        stage.setScene(scene);
-        stage.show();
+    public MediaPlayerController(Stage stage) throws IOException {
     }
 
     public void addSong(String details)
