@@ -11,21 +11,12 @@ import java.io.IOException;
 public class MediaPlayerController
 {
     private ImportController importController;
-    private TunesController tunesController;
-
-    public MediaPlayerController(Stage stage) throws IOException {
-    }
-
-    public void addSong(String details)
-    {
-        tunesController.addSong(details);
-    }
 
     public void importWindow() throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("SongImportScene.fxml"));
 
-        importController = new ImportController(this);
+        //importController = new ImportController(this);
         fxmlLoader.setController(importController);
 
         Scene scene = new Scene(fxmlLoader.load());
@@ -33,5 +24,9 @@ public class MediaPlayerController
         stage.setScene(scene);
         stage.setTitle("Import Song");
         stage.show();
+    }
+
+    public void addSong(String s) {
+        System.out.println(s);
     }
 }
