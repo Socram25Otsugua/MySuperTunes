@@ -6,11 +6,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="300.0" prefWidth="300.0" styleClass="background-image" stylesheets="@style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.mytunes.PL.ImportController">
+<AnchorPane prefHeight="300.0" prefWidth="300.0" styleClass="background-image" stylesheets="@style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.mytunes.PL.controllers.ImportController">
    <children>
       <TextField fx:id="title" layoutX="75.0" layoutY="47.0" />
       <TextField fx:id="artist" layoutX="75.0" layoutY="102.0" />
-      <TextField fx:id="path" layoutX="75.0" layoutY="204.0" />
+      <TextField fx:id="path" layoutX="75.0" layoutY="204.0" editable="false" />
+      <Button fx:id="browseButton" layoutX="240.0" layoutY="204.0" text="Browse" onAction="#handleBrowse" />
       <ComboBox fx:id="genre" layoutX="75.0" layoutY="153.0" prefWidth="150.0" />
       <Label layoutX="75.0" layoutY="30.0" text="Title" />
       <Label layoutX="76.0" layoutY="84.0" text="Artist" />

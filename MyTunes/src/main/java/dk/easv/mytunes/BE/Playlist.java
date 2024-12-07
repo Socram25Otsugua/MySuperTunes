@@ -1,5 +1,7 @@
 package dk.easv.mytunes.BE;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Playlist {
@@ -7,9 +9,15 @@ public class Playlist {
     private String name;
     private List<Song> songs;
 
+    public Playlist()
+    {
+        songs = new ArrayList<>();
+    }
+
     public Playlist(int id, String name) {
         this.id = id;
         this.name = name;
+        this.songs = new ArrayList<>();
     }
     public int getId() {
         return id;
@@ -35,6 +43,10 @@ public class Playlist {
     public void removeSong(Song song) {
         songs.remove(song);
     }
+    public void addAllSongs(Collection<Song> songsCollection) {
+        songs.addAll(songsCollection);
+    }
+
     public String toString() {
         return name + " (" + songs.size() + "songs)";
     }

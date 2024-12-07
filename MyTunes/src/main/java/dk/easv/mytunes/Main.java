@@ -1,7 +1,5 @@
 package dk.easv.mytunes;
 
-import dk.easv.mytunes.PL.ImportController;
-import dk.easv.mytunes.PL.controllers.MediaPlayerController;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;

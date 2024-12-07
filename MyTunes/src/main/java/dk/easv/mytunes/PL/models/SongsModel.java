@@ -1,19 +1,17 @@
 package dk.easv.mytunes.PL.models;
 
-import dk.easv.mytunes.BE.Playlist;
 import dk.easv.mytunes.BE.Song;
 import dk.easv.mytunes.BLL.SongManager;
 import dk.easv.mytunes.Exceptions.SongExceptions;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class MyTunesModel {
+public class SongsModel {
     Connection connection;
-    private final SongManager songManager = new SongManager();
+    private SongManager songManager = new SongManager();
     private final ObservableList<Song> songs = FXCollections.observableArrayList();
 
     public void loadSongs() {
