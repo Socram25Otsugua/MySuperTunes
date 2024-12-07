@@ -27,8 +27,8 @@ public class SongDAO {
                         rs.getString("title"),
                         rs.getString("artist"),
                         rs.getString("category"),
-                        rs.getString("duration"),
-                        rs.getString("file_path")
+                        rs.getString("file_path"),
+                        rs.getString("duration")
                 ));
             }
         }
