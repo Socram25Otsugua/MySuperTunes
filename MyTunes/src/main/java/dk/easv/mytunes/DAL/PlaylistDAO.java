@@ -119,7 +119,7 @@ public class PlaylistDAO implements IPlaylistDAO {
 
     public List<Song> getSongsForPlaylist(Playlist playlist) {
         List<Song> songs = new ArrayList<>();
-        String sql = "SELECT s.id, s.title, s.artist, s.genre, s.file_path, s.duration " +
+        String sql = "SELECT s.id, s.title, s.artist, s.category, s.file_path, s.duration " +
                 "FROM Songs s " +
                 "INNER JOIN PlaylistSongs ps ON s.id = ps.song_id " +
                 "WHERE ps.playlist_id = ?";
@@ -133,11 +133,11 @@ public class PlaylistDAO implements IPlaylistDAO {
                     int id = rs.getInt("id");
                     String title = rs.getString("title");
                     String artist = rs.getString("artist");
-                    String genre = rs.getString("genre");
+                    String category = rs.getString("category");
                     String filePath = rs.getString("file_path");
                     String duration = rs.getString("duration");
 
-                    Song song = new Song(id, title, artist, genre, filePath, duration);
+                    Song song = new Song(id, title, artist, category, filePath, duration);
                     songs.add(song);
                 }
             }

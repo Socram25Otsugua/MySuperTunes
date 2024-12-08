@@ -3,6 +3,7 @@ package dk.easv.mytunes.PL.controllers;
 import dk.easv.mytunes.BE.Song;
 import dk.easv.mytunes.PL.models.PlaylistModel;
 import dk.easv.mytunes.PL.models.SongsModel;
+import dk.easv.mytunes.PL.utility.SceneNavigator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -64,17 +65,12 @@ public class TunesController implements Initializable {
     }
 
     public void importSong(MouseEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/dk/easv/mytunes/SongImportScene.fxml"));
-        Parent root = fxmlLoader.load();
-
-        ImportController importController = fxmlLoader.getController();
-        importController.setTunesController(this);
-
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Import Song");
-        stage.show();
+        try {
+            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            SceneNavigator.switchScene(currentStage, "/dk/easv/mytunes/SongImportScene.fxml", "Import Window");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -123,18 +119,13 @@ public class TunesController implements Initializable {
 
     }
 
-    public void onPlaylistMode(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/dk/easv/mytunes/PlaylistsScene.fxml"));
-        Parent root = loader.load();
-
-        PlaylistsController playlistsController = loader.getController();
-        playlistsController.setTunesController(this);
-
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("My Playlists");
-        stage.show();
+    public void onPlaylistMode(MouseEvent event){
+        try {
+            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            SceneNavigator.switchScene(currentStage, "/dk/easv/mytunes/PlaylistsScene.fxml", "Playlists");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -148,12 +139,10 @@ public class TunesController implements Initializable {
         mediaPlayerController.pause(); // Delegate to MediaPlayerController
     }
 
-    /*@FXML
+    @FXML
     public void onStop(MouseEvent event) {
         mediaPlayerController.stop(); // Delegate to MediaPlayerController
     }
-
-     */
 
     @FXML
     public void onGoBack(MouseEvent mouseEvent) {
@@ -176,9 +165,13 @@ public class TunesController implements Initializable {
         return myStationList;
     }
 
-    public void onMyMusic(MouseEvent mouseEvent) {
+    public void onMyMusic(MouseEvent event) {
+        try {
+            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            SceneNavigator.switchScene(currentStage, "/dk/easv/mytunes/MyMusicScene.fxml", "My Music");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void onStop(MouseEvent mouseEvent) {
-    }
 }

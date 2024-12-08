@@ -44,7 +44,7 @@ public class MediaPlayerController
     }
 
     // Stop the currently playing song
-    public void onStop() {
+    public void stop() {
         if (mediaPlayer != null) {
             mediaPlayer.stop();
         }
