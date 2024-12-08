@@ -1,13 +1,17 @@
 package dk.easv.mytunes.PL.controllers;
 
 import dk.easv.mytunes.BE.Song;
+import dk.easv.mytunes.PL.utility.SceneNavigator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 
 public class ImportController {
 
@@ -76,4 +80,12 @@ public class ImportController {
         }
     }
 
+    public void onStationMode(MouseEvent event) {
+        try {
+            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            SceneNavigator.switchScene(currentStage, "/dk/easv/mytunes/MainScene.fxml", "My Tunes");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

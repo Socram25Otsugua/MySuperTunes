@@ -1,12 +1,15 @@
 package dk.easv.mytunes.PL.controllers;
 
 import dk.easv.mytunes.BE.Playlist;
+import dk.easv.mytunes.PL.utility.SceneNavigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Optional;
 
 public class PlaylistsController {
@@ -93,15 +96,33 @@ public class PlaylistsController {
     public void handleEditPlaylist(ActionEvent event) {
     }
 
-    public void importSong(MouseEvent mouseEvent) {
-    }
-
-    public void onStationMode(MouseEvent mouseEvent) {
-    }
-
     public void handleRemoveFromPlaylist(ActionEvent event) {
     }
 
-    public void onMyMusic(MouseEvent mouseEvent) {
+    public void importSong(MouseEvent event) {
+        try {
+            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            SceneNavigator.switchScene(currentStage, "/dk/easv/mytunes/SongImportScene.fxml", "Import Window");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void onStationMode(MouseEvent event) {
+        try {
+            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            SceneNavigator.switchScene(currentStage, "/dk/easv/mytunes/MainScene.fxml", "My Tunes");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void onMyMusic(MouseEvent event) {
+        try {
+            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            SceneNavigator.switchScene(currentStage, "/dk/easv/mytunes/MyMusicScene.fxml", "My Music");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
